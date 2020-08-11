@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const Monster = ({ monster = {} }) => {
   return (
@@ -8,4 +8,4 @@ const Monster = ({ monster = {} }) => {
   );
 };
 
-export default Monster;
+export default Monster

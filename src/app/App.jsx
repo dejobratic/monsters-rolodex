@@ -1,34 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 
-import Monster from "./models/Monster";
+import Monster from "./components/Monster"
 
-import "./App.css";
+import { monsterService } from "./services/MonsterService"
 
-const state = {
-  monsters: [
-    {
-      id: 1,
-      name: "Karakondzula",
-    },
-    {
-      id: 2,
-      name: "Drekavac",
-    },
-    {
-      id: 3,
-      name: "Vampir",
-    },
-  ],
-};
+import "./App.css"
 
 const App = () => {
+  const [monsters, setMonsters] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const monsters = await monsterService.getMonsters();
+      setMonsters(monsters);
+    };
+    fetchData()
+  }, []);
+
   return (
     <div className="App">
-      {state.monsters.map((monster) => (
+      {monsters.map((monster) => (
         <Monster key={monster.id} monster={monster}></Monster>
       ))}
     </div>
   );
 };
 
-export default App;
+export default App
