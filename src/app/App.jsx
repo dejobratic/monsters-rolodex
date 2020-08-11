@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './resources/logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+import Monster from "./models/Monster";
+
+import "./App.css";
+
+const state = {
+  monsters: [
+    {
+      id: 1,
+      name: "Karakondzula",
+    },
+    {
+      id: 2,
+      name: "Drekavac",
+    },
+    {
+      id: 3,
+      name: "Vampir",
+    },
+  ],
+};
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>      
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {state.monsters.map((monster) => (
+        <Monster key={monster.id} monster={monster}></Monster>
+      ))}
     </div>
   );
-}
+};
 
 export default App;
