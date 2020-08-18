@@ -1,9 +1,14 @@
 import { restService } from "./RestService"
+import Monster from "../models/Monster"
 
 class MonsterService {
-  async getMonsters() {
+  async getAll() {
     const url = "https://jsonplaceholder.typicode.com/users"
-    return await restService.get(url);
+    const rawMonsters = await restService.get(url)
+    return rawMonsters.map(
+      (rawMonster) =>
+        new Monster(rawMonster.id, rawMonster.name, rawMonster.email)
+    )
   }
 }
 

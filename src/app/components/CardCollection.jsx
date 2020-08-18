@@ -1,10 +1,10 @@
 import React from "react"
 
-import Card from "./card.component"
+import Card from "./Card"
 
-import "./card-collection.styles.css"
+import "./CardCollection.css"
 
-const CardCollection = ({ items }) => {
+const CardCollection = ({ items = {} }) => {
   return (
     <div className="card-collection">
       {items.map((item) => (

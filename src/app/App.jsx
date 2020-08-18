@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React from 'react'
 
-import MonsterCollection from "./components/monster-collection.component"
-
-import "./App.css"
+import './App.css'
+import MonstersHomePage from './views/MonstersHomePage'
 
 const App = () => {
   return (
-    <div className="App">
-      <MonsterCollection />
+    <div className='App'>
+      <MonstersHomePage />
     </div>
   )
 }
